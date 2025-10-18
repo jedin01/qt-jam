@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpi7dm24sgn0h"]
+
+[ext_resource type="Script" uid="uid://cncmd7k51nuse" path="res://CharacterBody2d.cs" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://dq06a5e6xtl6c" path="res://icon.svg" id="1_ig7tw"]
+
+[node name="main" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-1440.33, 8.20771)
+scale = Vector2(6.984, 1.01615)
+polygon = PackedVector2Array(-9, 181, -9, 270, 1155, 268, 1153, 182)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+position = Vector2(-1147.17, 0)
+scale = Vector2(6.58558, 1)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(2, 189, 2, 264, 1062.36, 264, 1153, 264, 1151, 187, 146.344, 188.749)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 2.0
+lock_rotation = true
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="RigidBody2D"]
+visible = false
+script = ExtResource("1_0xm2m")
+
+[node name="Icon" type="Sprite2D" parent="RigidBody2D/CharacterBody2D"]
+position = Vector2(179, -104)
+scale = Vector2(0.695312, 0.695312)
+texture = ExtResource("1_ig7tw")
+
+[node name="Camera2D" type="Camera2D" parent="RigidBody2D/CharacterBody2D/Icon"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+polygon = PackedVector2Array(118, -153, 124, -55, 233, -55, 230, -153)
